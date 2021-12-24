@@ -140,6 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="C Star.cpp" />
+    <ClCompile Include="global.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="global.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Testscript.cst" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
