@@ -141,11 +141,11 @@
   <ItemGroup>
     <ClCompile Include="global.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Modules\sys.cpp" />
+    <ClCompile Include="Modules\traceback.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="global.h" />
-    <ClInclude Include="Modules\sys.h" />
+    <ClInclude Include="Modules\traceback.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Testscript.cst" />

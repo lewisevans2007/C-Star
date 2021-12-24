@@ -1,1 +1,4 @@
-//
+#using:sys
+!main
+sys.out:"test"
+sys.out.newline

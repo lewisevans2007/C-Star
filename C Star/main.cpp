@@ -5,6 +5,7 @@
 #include <vector>
 #include <algorithm>
 #include "global.h"
+#include "Modules/traceback.h"
 using namespace std;
 int getIndex(vector<string> v, string K)
 {
@@ -44,11 +45,29 @@ int main(int argc, char** argv) {
                     imported.push_back(line);
                 }
                 else {
-                    cout << "Cant find the module "<< line << " from system builtins";
-                    exit(1);
+                    raise_error(3, "Module missing error", "The '"+line+"' module is not in system builtins");
                 }
             }
+            if (line.rfind("var:", 0) == 0) {
+                line.erase(0, 4);
+                string removestring = "var:";
+                auto n = line.find("var:");
+                string delimiter = "=";
+
+                size_t pos = 0;
+                string var_name;
+                string var_data;
+                while ((pos = line.find(delimiter)) != std::string::npos) {
+                    var_name = line.substr(0, pos);
+                    line.erase(0, pos + delimiter.length());
+                }
+                var_data = line;
+                varibles.push_back(var_name);
+                varibles_values.push_back(var_data);
+            }
+            
             if (in_main_function == true) {
+                //SYS Module
                 if (line.rfind("sys.", 0) == 0) {
                     if (std::find(imported.begin(), imported.end(), "sys") != imported.end()) {
                         if (line.rfind("sys.out:", 0) == 0) {
@@ -76,10 +95,11 @@ int main(int argc, char** argv) {
                         }
                     }
                     else {
-                        cout << "sys is undefined are you missing a import \n#using:sys\n";
+                        raise_error(2, "Module import error", "The sys module was used but never imported");
                         exit(1);
                     }
                 }
+                //VARDB Module
                 if (line.rfind("vardb.", 0) == 0) {
                     if (std::find(imported.begin(), imported.end(), "vardb") != imported.end()) {
                         if (line.rfind("vardb.ls", 0) == 0) {
@@ -88,32 +108,14 @@ int main(int argc, char** argv) {
                         }
                     }
                     else {
-                        cout << "vardb is undefined are you missing a import \n#using:sys\n";
-                        exit(1);
+                        raise_error(2, "Module import error", "The sys module was used but never imported");
                     }
-                }
-                if (line.rfind("var:", 0) == 0) {
-                    line.erase(0, 4);
-                    string removestring = "var:";
-                    auto n = line.find("var:");
-                    string delimiter = "=";
-
-                    size_t pos = 0;
-                    string var_name;
-                    string var_data;
-                    while ((pos = line.find(delimiter)) != std::string::npos) {
-                        var_name = line.substr(0, pos);
-                        line.erase(0, pos + delimiter.length());
-                    }
-                    var_data = line;
-                    varibles.push_back(var_name);
-                    varibles_values.push_back(var_data);
                 }
             }
         }
     }
     else {
-        cout << "Cant find file\n";
+        cout << "Cant find file "<< argv[1] << "\n";
     }
 	
 }

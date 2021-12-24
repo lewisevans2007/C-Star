@@ -18,10 +18,10 @@
     <ClCompile Include="global.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Modules\sys.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="Modules\traceback.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,7 +29,7 @@
     <ClInclude Include="global.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Modules\sys.h">
+    <ClInclude Include="Modules\traceback.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
