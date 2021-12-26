@@ -32,6 +32,9 @@
     <ClInclude Include="Modules\traceback.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Testscript.cst">

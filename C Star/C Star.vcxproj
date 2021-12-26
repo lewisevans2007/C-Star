@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="global.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="Modules\traceback.h" />
   </ItemGroup>
   <ItemGroup>
