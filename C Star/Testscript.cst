@@ -1,4 +1,11 @@
 #using:sys
+#using:vardb
 !main
-sys.out:"test"
-sys.out.newline
+var:test1=$vardb.ls
+var:test2=$vardb.ls
+var:test3=$vardb.ls
+var:test4=$vardb.ls
+var:test5=$vardb.ls
+var:test6=$vardb.ls
+var:test=$vardb.ls
+sys.out:test
