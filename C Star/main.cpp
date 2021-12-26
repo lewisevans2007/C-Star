@@ -55,6 +55,9 @@ string function(string line, vector<string> imported, vector<string> variables, 
                 line.erase(0, 8);
                 system(line.c_str()); //TODO: Make the function return the output
             }
+            if (line.rfind("sys.version", 0) == 0) {
+                return version;
+            }
         }
         else {
             raise_error(2, "Module import error", "The sys module was used but never imported");
