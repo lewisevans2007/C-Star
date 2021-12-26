@@ -1,11 +1,10 @@
+//This is the test script used for testing C*
 #using:sys
 #using:vardb
 !main
-var:test=$vardb.ls
-var:test=$vardb.ls
-var:test=$vardb.ls
-var:test=$vardb.ls
-var:test=$vardb.ls
-var:test=$vardb.ls
-var:test=$vardb.ls
+var:test:"hello"
+var:test2:vardb.ls
 sys.out:test
+sys.out.newline
+sys.out:test2
+sys.exit:0
