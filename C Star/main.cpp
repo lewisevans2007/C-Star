@@ -86,6 +86,7 @@ int main(int argc, char** argv) {
     vector<string> variables_values;
     builtins.push_back("sys");
     builtins.push_back("vardb");
+    int line_num = 1;
     if (file.is_open())
     {
         string line;
@@ -120,7 +121,7 @@ int main(int argc, char** argv) {
                     line.erase(0, pos + delimiter.length());
                 }
                 if (std::find(variables.begin(), variables.end(), var_name) != variables.end()) {
-                    raise_error(4,"Variable already exists in the vardb", "Variable '" + var_name + "' already exists");
+                    raise_error(4, "Variable already exists in the vardb", "Variable '" + var_name + "' already exists at line " + to_string(line_num));
                 }
                 else {}
                 if (line.rfind("$", 0) == 0) {
@@ -140,6 +141,7 @@ int main(int argc, char** argv) {
             if (in_main_function == true) {
                 function(line, imported, variables, variables_values);
             }
+            line_num = line_num + 1;
         }
     }
     else {
