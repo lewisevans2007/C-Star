@@ -70,6 +70,12 @@ string function(string line, vector<string> imported, vector<string> variables, 
                     x = x  + variables[i] + ' ';
                 return x;
             }
+            if (line.rfind("vardb.get:", 0) == 0) {
+                line.erase(0, 10);
+                if (std::find(variables.begin(), variables.end(), line) != variables.end()) {
+                    return variables_values[getIndex(variables, line)];
+                }
+            }
         }
         else {
             raise_error(2, "Module import error", "The vardb module was used but never imported");
