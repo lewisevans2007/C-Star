@@ -72,7 +72,7 @@ string function(string line, vector<string> imported, vector<string> variables, 
             }
         }
         else {
-            raise_error(2, "Module import error", "The sys module was used but never imported");
+            raise_error(2, "Module import error", "The vardb module was used but never imported");
         }
     }
     return "";
@@ -137,7 +137,9 @@ int main(int argc, char** argv) {
                     continue;
                 }
             }
-            
+            if (line.rfind("!endfunc", 0) == 0) {
+                in_main_function = false;
+            }
             if (in_main_function == true) {
                 function(line, imported, variables, variables_values);
             }
