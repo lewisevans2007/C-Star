@@ -143,6 +143,13 @@ int main(int argc, char** argv) {
                     continue;
                 }
             }
+            if (line.rfind("del:", 0) == 0) {
+                line.erase(0, 4);
+                int pos = getIndex(variables, line);
+                variables.erase(variables.begin() + pos);
+                variables_values.erase(variables_values.begin() + pos);
+
+            }
             if (line.rfind("!endfunc", 0) == 0) {
                 in_main_function = false;
             }
