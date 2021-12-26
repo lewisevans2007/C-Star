@@ -24,6 +24,7 @@
     <ProjectGuid>{7dd35604-186d-43d9-a998-cf3602d961dd}</ProjectGuid>
     <RootNamespace>CStar</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>C-Star</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -145,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="global.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="Modules\traceback.h" />
   </ItemGroup>
   <ItemGroup>
