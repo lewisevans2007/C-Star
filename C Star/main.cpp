@@ -4,10 +4,11 @@
 #include <sstream>
 #include <vector>
 #include <algorithm>
+#include <stdexcept>
+#include <stdio.h>
 #include "global.h"
 #include "Modules/traceback.h"
 using namespace std;
-
 
 int getIndex(vector<string> v, string K)
 {
