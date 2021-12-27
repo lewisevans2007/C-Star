@@ -15,5 +15,5 @@ jobs:
       run: sudo apt install g++
     - name: compile
       run: |
-        cd Xmake
-        g++ Xmake.cpp function.cpp help.cpp Global.cpp 
+        cd "C Star"
+        ./build.sh
