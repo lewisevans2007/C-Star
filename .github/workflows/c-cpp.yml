@@ -16,4 +16,4 @@ jobs:
     - name: compile
       run: |
         cd "C Star"
-        ./build.sh
+        sudo ./build.sh
