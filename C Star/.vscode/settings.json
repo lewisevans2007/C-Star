@@ -2,5 +2,10 @@
     "files.associations": {
         "iostream": "cpp",
         "vector": "cpp"
+    },
+    "files.exclude": {
+        "*.vcxproj": true,
+        "*.filters": true,
+        "*.user": true
     }
 }
