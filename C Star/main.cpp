@@ -45,7 +45,6 @@ string function(string line, vector<string> imported, vector<string> variables, 
                 }
             }
             if (line.rfind("sys.out.newline", 0) == 0) {
-                cout << "\n";
                 return "\n";
             }
             if (line.rfind("sys.exit:", 0) == 0) {
