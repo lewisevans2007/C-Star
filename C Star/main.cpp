@@ -3,6 +3,7 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include <algorithm>
 #include "global.h"
 #include "Modules/traceback.h"
 using namespace std;
@@ -54,9 +55,6 @@ string function(string line, vector<string> imported, vector<string> variables, 
             if (line.rfind("sys.run:", 0) == 0) {
                 line.erase(0, 8);
                 system(line.c_str()); //TODO: Make the function return the output
-            }
-            if (line.rfind("sys.version", 0) == 0) {
-                return version;
             }
         }
         else {

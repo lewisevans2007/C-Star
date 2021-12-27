@@ -1,1 +1,1 @@
-c++ main.cpp global.cpp Modules/traceback.cpp
+c++ main.cpp global.cpp Modules/traceback.cpp -std=c++11
