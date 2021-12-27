@@ -16,4 +16,4 @@ jobs:
     - name: compile
       run: |
         cd "C Star"
-        sudo ./build.sh
+        c++ main.cpp global.cpp Modules/traceback.cpp -std=c++11
