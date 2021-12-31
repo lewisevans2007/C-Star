@@ -26,7 +26,7 @@ int getIndex(vector<string> v, string K)
 string function(string line, vector<string> imported, vector<string> variables, vector<string> variables_values) {
     //SYS Module
     if (line.rfind("sys.", 0) == 0) {
-        if (std::find(imported.begin(), imported.end(), "sys") != imported.end()) {
+        if (find(imported.begin(), imported.end(), "sys") != imported.end()) {
             if (line.rfind("sys.out:", 0) == 0) {
                 line.erase(0, 8);
                 if (line.rfind("$", 0) == 0) {
@@ -40,7 +40,7 @@ string function(string line, vector<string> imported, vector<string> variables, 
                     return "";
                 }
                 else {
-                    if (std::find(variables.begin(), variables.end(), line) != variables.end()) {
+                    if (find(variables.begin(), variables.end(), line) != variables.end()) {
                         cout << variables_values[getIndex(variables, line)];
                     }
                 }
@@ -64,7 +64,7 @@ string function(string line, vector<string> imported, vector<string> variables, 
     }
     //VARDB Module
     if (line.rfind("vardb.", 0) == 0) {
-        if (std::find(imported.begin(), imported.end(), "vardb") != imported.end()) {
+        if (find(imported.begin(), imported.end(), "vardb") != imported.end()) {
             if (line.rfind("vardb.ls", 0) == 0) {
                 string x;
                 for (int i = 0; i < variables.size(); i++)
@@ -73,7 +73,7 @@ string function(string line, vector<string> imported, vector<string> variables, 
             }
             if (line.rfind("vardb.get:", 0) == 0) {
                 line.erase(0, 10);
-                if (std::find(variables.begin(), variables.end(), line) != variables.end()) {
+                if (find(variables.begin(), variables.end(), line) != variables.end()) {
                     return variables_values[getIndex(variables, line)];
                 }
             }
@@ -107,7 +107,7 @@ int main(int argc, char** argv) {
             }
             if (line.rfind("#using:", 0) == 0) {
                 line.erase(0, 7);
-                if (std::find(builtins.begin(), builtins.end(), line) != builtins.end()) {
+                if (find(builtins.begin(), builtins.end(), line) != builtins.end()) {
                     imported.push_back(line);
                 }
                 else {
@@ -123,11 +123,11 @@ int main(int argc, char** argv) {
                 size_t pos = 0;
                 string var_name;
                 string var_data;
-                while ((pos = line.find(delimiter)) != std::string::npos) {
+                while ((pos = line.find(delimiter)) != string::npos) {
                     var_name = line.substr(0, pos);
                     line.erase(0, pos + delimiter.length());
                 }
-                if (std::find(variables.begin(), variables.end(), var_name) != variables.end()) {
+                if (find(variables.begin(), variables.end(), var_name) != variables.end()) {
                     raise_error(4, "Variable already exists in the vardb", "Variable '" + var_name + "' already exists at line " + to_string(line_num));
                 }
                 else {}
