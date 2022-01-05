@@ -1,6 +1,4 @@
-//This is the test script used for testing C*
 #using:sys
-#using:vardb
 !main
-var:test="hello"
-sys.out:$vardb.get:test
+sys.out:"test"
+sys.out.newline
