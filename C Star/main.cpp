@@ -24,8 +24,8 @@ int main(int argc, char** argv) {
     bool in_main_function = false;
     vector<string> imported;
     vector<string> builtins;
-    vector<string> varibles;
-    vector<string> varibles_values;
+    vector<string> variables;
+    vector<string> variables_values;
     builtins.push_back("sys");
     builtins.push_back("vardb");
     if (file.is_open())
@@ -62,8 +62,8 @@ int main(int argc, char** argv) {
                     line.erase(0, pos + delimiter.length());
                 }
                 var_data = line;
-                varibles.push_back(var_name);
-                varibles_values.push_back(var_data);
+                variables.push_back(var_name);
+                variables_values.push_back(var_data);
             }
             
             if (in_main_function == true) {
@@ -77,8 +77,8 @@ int main(int argc, char** argv) {
                                 cout << line;
                             }
                             else {
-                                if (std::find(varibles.begin(), varibles.end(), line) != varibles.end()) {
-                                    cout << varibles_values[getIndex(varibles, line)];
+                                if (std::find(variables.begin(), variables.end(), line) != variables.end()) {
+                                    cout << variables_values[getIndex(variables, line)];
                                 }
                             }
                         }
@@ -103,8 +103,8 @@ int main(int argc, char** argv) {
                 if (line.rfind("vardb.", 0) == 0) {
                     if (std::find(imported.begin(), imported.end(), "vardb") != imported.end()) {
                         if (line.rfind("vardb.ls", 0) == 0) {
-                            for (int i = 0; i < varibles.size(); i++)
-                                std::cout << varibles[i] << ' ';
+                            for (int i = 0; i < variables.size(); i++)
+                                std::cout << variables[i] << ' ';
                         }
                     }
                     else {
